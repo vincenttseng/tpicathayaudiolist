@@ -20,6 +20,8 @@ public class SurflyListController {
 	@PostMapping("/snaplist")
 	public String viewBooks(@RequestBody ImgReqModel model) {
 		log.info("called {}", model);
+		
+		
 		return "view-books";
 	}
 }
