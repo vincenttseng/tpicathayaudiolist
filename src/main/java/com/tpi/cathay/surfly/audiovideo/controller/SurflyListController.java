@@ -1,5 +1,6 @@
 package com.tpi.cathay.surfly.audiovideo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.tpi.cathay.surfly.audiovideo.model.ImgReqModel;
+import com.tpi.cathay.surfly.audiovideo.service.ImgReqService;
 
 @Controller
 @RequestMapping("/record")
@@ -20,6 +22,9 @@ public class SurflyListController {
   public SurflyListController() {
 
   }
+
+  @Autowired
+  ImgReqService imgReqService;
 
   @GetMapping(path = "/goViewSnap")
   public String goViewSnap(Model model, @RequestParam(value = "SessionID", required = true) String sessionID,
@@ -37,6 +42,8 @@ public class SurflyListController {
   @PostMapping("/snaplist")
   public String viewSnap(@RequestBody ImgReqModel model) {
     log.info("called {}", model);
+
+    imgReqService.checkModelParam(model);
 
     return "view-snaps";
   }
