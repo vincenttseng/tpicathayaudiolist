@@ -10,45 +10,44 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-
 @ContextConfiguration(classes = { ImgFileNameUtilTest.class }, loader = AnnotationConfigContextLoader.class)
 @ActiveProfiles("test")
 public class ImgFileNameUtilTest {
-	private static final Logger log = LoggerFactory.getLogger(ImgFileNameUtilTest.class);
+  private static final Logger log = LoggerFactory.getLogger(ImgFileNameUtilTest.class);
 
-	@Test
-	public void test0() {
-		String date0 = "2025/02/07 11:22:33";
-		log.info("date0 {}", date0);
-		try {
-			Date date = ImgFileNameUtil.sdf.parse(date0);
+  @Test
+  public void test0() {
+    String date0 = "2025/02/07 11:22:33";
+    log.info("date0 {}", date0);
+    try {
+      Date date = ImgFileNameUtil.sdf.parse(date0);
 
-			String filename = "/record/data/screen/20240205/fekMSYjk2vhThOwKkXs6evkq/fekMSYjk2vhThOwKkXs6evkq_"
-					+ date.getTime() + ".JPG";
-			log.info("filename {}", filename);
-			String date1 = ImgFileNameUtil.getFormattedTimeFromImgFile(filename);
-			log.info("date0 {} date1 {}", date0, date1);
-			Assert.assertEquals(date0, date1);
-		} catch (Exception e) {
-			Assert.assertTrue(false);
-		}
-	}
-	
-	@Test
-	public void test1() {
-		String date0 = "2025/02/06 22:24:45";
-		log.info("date0 {}", date0);
-		try {
-			Date date = ImgFileNameUtil.sdf.parse(date0);
+      String filename = "/record/data/screen/20240205/fekMSYjk2vhThOwKkXs6evkq/fekMSYjk2vhThOwKkXs6evkq_"
+          + date.getTime() + ".JPG";
+      log.info("filename {}", filename);
+      String date1 = ImgFileNameUtil.getFormattedTimeFromImgFile(filename);
+      log.info("date0 {} date1 {}", date0, date1);
+      Assert.assertEquals(date0, date1);
+    } catch (Exception e) {
+      Assert.assertTrue(false);
+    }
+  }
 
-			String filename = "/record/data/screen/20240205/fekMSYjk2vhThOwKkXs6evkq/fekMSYjk2vhThOwKkXs6evkq_"
-					+ date.getTime() + ".JPG";
-			log.info("filename {}", filename);
-			String date1 = ImgFileNameUtil.getFormattedTimeFromImgFile(filename);
-			log.info("date0 {} date1 {}", date0, date1);
-			Assert.assertEquals(date0, date1);
-		} catch (Exception e) {
-			Assert.assertTrue(false);
-		}
-	}
+  @Test
+  public void test1() {
+    String date0 = "2025/02/06 22:24:45";
+    log.info("date0 {}", date0);
+    try {
+      Date date = ImgFileNameUtil.sdf.parse(date0);
+
+      String filename = "/record/data/screen/20240205/fekMSYjk2vhThOwKkXs6evkq/fekMSYjk2vhThOwKkXs6evkq_"
+          + date.getTime() + ".JPG";
+      log.info("filename {}", filename);
+      String date1 = ImgFileNameUtil.getFormattedTimeFromImgFile(filename);
+      log.info("date0 {} date1 {}", date0, date1);
+      Assert.assertEquals(date0, date1);
+    } catch (Exception e) {
+      Assert.assertTrue(false);
+    }
+  }
 }

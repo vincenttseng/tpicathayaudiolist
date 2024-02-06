@@ -14,11 +14,11 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 @ContextConfiguration(classes = { ImgReqModelTest.class }, loader = AnnotationConfigContextLoader.class)
 @ActiveProfiles("test")
 public class ImgReqModelTest {
-	private static final Logger log = LoggerFactory.getLogger(ImgReqModelTest.class);
+  private static final Logger log = LoggerFactory.getLogger(ImgReqModelTest.class);
 
-	@Test
-	public void test0() {
-		log.info("test init");
-		Assert.assertTrue(true);
-	}
+  @Test
+  public void test0() {
+    log.info("test init");
+    Assert.assertTrue(true);
+  }
 }

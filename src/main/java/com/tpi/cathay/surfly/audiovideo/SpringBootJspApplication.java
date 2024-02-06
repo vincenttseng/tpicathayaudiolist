@@ -8,14 +8,13 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication(scanBasePackages = "com.tpi.cathay.surfly.audiovideo")
 public class SpringBootJspApplication extends SpringBootServletInitializer {
 
+  // comment below if deploying outside web container -->
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+    return builder.sources(SpringBootJspApplication.class);
+  }
 
-    //comment below if deploying outside web container -->
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(SpringBootJspApplication.class);
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootJspApplication.class);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(SpringBootJspApplication.class);
+  }
 }

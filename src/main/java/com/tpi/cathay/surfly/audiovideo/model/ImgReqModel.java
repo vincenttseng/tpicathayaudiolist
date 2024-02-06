@@ -17,15 +17,15 @@ import lombok.ToString;
 @ToString
 
 public class ImgReqModel {
-	@JsonProperty("SessionID")
-	private String sessionID;
+  @JsonProperty("SessionID")
+  private String sessionID;
 
-	@JsonProperty("ConnID")
-	private String connID;
+  @JsonProperty("ConnID")
+  private String connID;
 
-	@JsonProperty("TimeStamp")
-	private String timeStamp;
+  @JsonProperty("TimeStamp")
+  private String timeStamp;
 
-	@JsonProperty("VoiceMountPath")
-	private String voicePath;
+  @JsonProperty("VoiceMountPath")
+  private String voicePath;
 }
