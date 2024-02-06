@@ -1,6 +1,8 @@
 package com.tpi.cathay.surfly.audiovideo.service;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.tpi.cathay.surfly.audiovideo.exception.InputParamException;
 import com.tpi.cathay.surfly.audiovideo.model.ImgReqModel;
+import com.tpi.cathay.surfly.audiovideo.model.ScreenShotVO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -91,6 +94,13 @@ public class ImgReqService {
     if (!file.exists()) {
       throw new InputParamException(targetAudioFile + " not existed");
     }
+  }
+  
+  public List<ScreenShotVO> getScreenShotVOList(ImgReqModel model) {
+    List<ScreenShotVO> list = new ArrayList<ScreenShotVO>();
+
+    
+    return list;
   }
 
 }

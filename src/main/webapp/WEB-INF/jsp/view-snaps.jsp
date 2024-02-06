@@ -9,17 +9,15 @@
         <table>
             <thead>
                 <tr>
-                    <th>file</th>
+                    <th>time</th>
                     <th>filename</th>
-                    <th>Author</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${books}" var="book">
+                <c:forEach items="${screenShotList}" var="screenShot">
                     <tr>
-                        <td>${book.isbn}</td>
-                        <td>${book.name}</td>
-                        <td>${book.author}</td>
+                        <td>${screenShot.timeString}</td>
+                        <td>${screenShot.imageFilePath}</td>
                     </tr>
                 </c:forEach>
             </tbody>
