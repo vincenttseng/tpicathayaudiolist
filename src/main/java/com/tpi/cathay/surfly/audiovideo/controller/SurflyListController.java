@@ -37,7 +37,9 @@ public class SurflyListController {
 	@PostMapping("/snaplist")
 	public String viewSnap(@RequestBody ImgReqModel model) {
 		log.info("called {}", model);
-
+		
+		
+		
 		return "view-snaps";
 	}
 }
