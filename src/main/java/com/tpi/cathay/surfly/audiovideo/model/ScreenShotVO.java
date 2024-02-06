@@ -15,6 +15,6 @@ import lombok.ToString;
 @ToString
 
 public class ScreenShotVO {
-  String timeString;
-  String imageFilePath;
+  String fileShownString;
+  String absFilePath;
 }

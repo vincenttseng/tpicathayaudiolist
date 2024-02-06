@@ -16,8 +16,8 @@
             <tbody>
                 <c:forEach items="${screenShotList}" var="screenShot">
                     <tr>
-                        <td>${screenShot.timeString}</td>
-                        <td>${screenShot.imageFilePath}</td>
+                        <td>${screenShot.fileShownString}</td>
+                        <td>${screenShot.absFilePath}</td>
                     </tr>
                 </c:forEach>
             </tbody>

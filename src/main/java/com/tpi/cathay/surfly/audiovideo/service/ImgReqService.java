@@ -2,6 +2,7 @@ package com.tpi.cathay.surfly.audiovideo.service;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -95,11 +96,30 @@ public class ImgReqService {
       throw new InputParamException(targetAudioFile + " not existed");
     }
   }
-  
-  public List<ScreenShotVO> getScreenShotVOList(ImgReqModel model) {
-    List<ScreenShotVO> list = new ArrayList<ScreenShotVO>();
 
-    
+  public List<ScreenShotVO> getScreenShotVOList(ImgReqModel model) {
+    checkModelParam(model);
+
+    String targetImgFolder = imgRoot + model.getTimeStamp() + File.separator + model.getSessionID() + File.separator;
+    log.info("root {}", targetImgFolder);
+
+    File file = new File(targetImgFolder);
+
+    List<ScreenShotVO> list = new ArrayList<ScreenShotVO>();
+    if (file.exists() && file.isDirectory()) {
+      File[] fileArray = file.listFiles();
+      Arrays.sort(fileArray);
+      List<File> fileList = Arrays.asList(fileArray);
+
+      fileList.stream().forEach(path -> {
+        String absPath = path.getAbsolutePath();
+        String filename = path.getName();
+        String fileShownString = ImgFileNameUtil.getFormattedTimeFromImgFile(filename);
+        log.info("path {} name: {} time {} ", absPath, filename, fileShownString);
+        ScreenShotVO vo = ScreenShotVO.builder().absFilePath(absPath).fileShownString(fileShownString).build();
+        list.add(vo);
+      });
+    }
     return list;
   }
 

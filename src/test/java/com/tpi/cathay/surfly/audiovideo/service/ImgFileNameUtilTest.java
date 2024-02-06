@@ -73,7 +73,6 @@ public class ImgFileNameUtilTest {
     String timestamp = "20240205";
     String sessionId = "fekMSYjk2vhThOwKkXs6evkq";
     
-    String date = "2024/02/05 22:24:45";
     List<String> list = new ArrayList<String>();
     list.add("2024/02/05 22:24:45");
     list.add("2024/02/05 22:24:50");
