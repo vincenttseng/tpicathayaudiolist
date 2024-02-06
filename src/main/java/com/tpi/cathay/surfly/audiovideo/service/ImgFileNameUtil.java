@@ -18,13 +18,13 @@ public class ImgFileNameUtil {
 	 * @param filename
 	 * @return
 	 */
-	public static String getFormattedTimeFromImgFileZhTw(String filename) throws TimeException {
+	public static String getFormattedTimeFromImgFile(String filename) throws TimeException {
 		if (StringUtils.isBlank(filename)) {
 			throw new TimeException("");
 		}
 
 		String tmpFile = filename.toLowerCase();
-		int index0 = tmpFile.lastIndexOf("/");
+		int index0 = tmpFile.lastIndexOf("_");
 		int index1 = tmpFile.indexOf(JPG);
 		if (index0 < 0 || index1 < 0) {
 			throw new TimeException("err file: " + filename);
@@ -33,7 +33,7 @@ public class ImgFileNameUtil {
 			throw new TimeException("err file: " + filename);
 		}
 
-		String token = filename.substring(index0, index1);
+		String token = filename.substring(index0 + 1, index1);
 
 		try {
 			Date date = new Date(Long.parseLong(token));
